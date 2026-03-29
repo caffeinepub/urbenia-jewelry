@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* Urbania Jewellers — light elegant theme */
+    --background: 0.98 0.005 75;
+    --foreground: 0.15 0.02 75;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 75;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 75;
+    --primary: 0.73 0.14 76;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.01 75;
+    --secondary-foreground: 0.15 0.02 75;
+    --muted: 0.94 0.01 75;
+    --muted-foreground: 0.45 0.02 75;
+    --accent: 0.93 0.01 75;
+    --accent-foreground: 0.15 0.02 75;
+    --destructive: 0.62 0.18 22;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.88 0.01 75;
+    --input: 0.95 0.01 75;
+    --ring: 0.32 0.1 150;
+    --gold: 0.73 0.14 76;
+    --gold-light: 0.82 0.12 76;
+    --gold-dim: 0.55 0.1 76;
+    --brand: 0.32 0.1 150;
+    --brand-light: 0.92 0.05 150;
+    --brand-muted: 0.88 0.04 150;
+    --ticker-up: 0.45 0.15 145;
+    --ticker-down: 0.55 0.18 22;
+    --chart-1: 0.73 0.14 76;
+    --chart-2: 0.45 0.15 145;
+    --chart-3: 0.55 0.18 22;
+    --chart-4: 0.5 0.1 260;
+    --chart-5: 0.55 0.09 76;
+    --sidebar: 0.97 0.005 75;
+    --sidebar-foreground: 0.15 0.02 75;
+    --sidebar-primary: 0.32 0.1 150;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.92 0.05 150;
+    --sidebar-accent-foreground: 0.32 0.1 150;
+    --sidebar-border: 0.88 0.01 75;
+    --sidebar-ring: 0.32 0.1 150;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-gold-light {
+    color: oklch(var(--gold-light));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .text-brand {
+    color: oklch(var(--brand));
+  }
+
+  .bg-brand {
+    background-color: oklch(var(--brand));
+  }
+
+  .bg-brand-light {
+    background-color: oklch(var(--brand-light));
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(var(--gold)),
+      transparent
+    );
+  }
+
+  .ticker-up {
+    color: oklch(var(--ticker-up));
+  }
+
+  .ticker-down {
+    color: oklch(var(--ticker-down));
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px oklch(var(--gold) / 0.2);
+  }
+
+  .product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Gold button — kept for legacy use */
+  .btn-gold {
+    background-color: oklch(var(--gold));
+    color: oklch(1 0 0);
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-gold:hover {
+    background-color: oklch(var(--gold-light));
+    box-shadow: 0 0 20px oklch(var(--gold) / 0.35);
+  }
+
+  .btn-gold-outline {
+    background-color: transparent;
+    border: 1px solid oklch(var(--gold));
+    color: oklch(var(--gold));
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .btn-gold-outline:hover {
+    background-color: oklch(var(--gold));
+    color: oklch(1 0 0);
+  }
+
+  /* Brand (forest green) button — primary CTA */
+  .btn-brand {
+    background-color: oklch(var(--brand));
+    color: oklch(1 0 0);
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-brand:hover {
+    background-color: oklch(0.42 0.12 150);
+    box-shadow: 0 0 20px oklch(var(--brand) / 0.3);
+  }
+
+  .btn-brand:active {
+    background-color: oklch(0.26 0.09 150);
+  }
+
+  /* Brand outline button — secondary CTA */
+  .btn-brand-outline {
+    background-color: transparent;
+    border: 1px solid oklch(var(--brand));
+    color: oklch(var(--brand));
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .btn-brand-outline:hover {
+    background-color: oklch(var(--brand));
+    color: oklch(1 0 0);
+  }
+
+  .ticker-scroll {
+    animation: tickerScroll 30s linear infinite;
+  }
+
+  @keyframes tickerScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .shimmer-overlay {
+    background: linear-gradient(
+      135deg,
+      oklch(0.97 0.003 75) 0%,
+      oklch(0.94 0.008 75) 50%,
+      oklch(0.97 0.003 75) 100%
+    );
+  }
+
+  .category-overlay {
+    background: linear-gradient(
+      to top,
+      oklch(0.1 0.02 75 / 0.75) 0%,
+      transparent 60%
+    );
+  }
+}
